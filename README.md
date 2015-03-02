@@ -26,6 +26,8 @@ Methods
 
 Digole12864.**setFont**(f,[callback(err)]) - Set text font (f: 0/6/10/18/51/120/123)
 
+Digole12864.**setColour**(r, g, b, [callback(err)]) - Set colour of next object (r/g/b can be between 0-63)
+
 Digole12864.**character**(c,[callback(err)]) - Write character (c) to screen at cursor
 
 Digole12864.**string**(s,[callback(err)]) - Write string (s) to screen at cursor
