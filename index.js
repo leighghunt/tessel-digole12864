@@ -77,6 +77,19 @@ Digole12864.prototype.setFont = function(f, cb){
     self._lcdWrite('SF'+buf.toString()+'\n',cb);
 }
 
+//Digole12864.**setColour**(f,[callback(err)]) - Set colour (r/g/b: 0-63 *Note, not 0-255)
+Digole12864.prototype.setColour = function (r, g, b, cb){
+    var self = this;
+    var buf = new Buffer(3);
+    buf.writeUInt8(r, 0);
+    buf.writeUInt8(g, 1);
+    buf.writeUInt8(b, 2);
+  if(DEBUG) console.log("Write colour: (" + r + ", " + g + ", " + b + ")");
+  self._lcdWrite('ESC'+buf.toString());
+  if(cb)
+    cb();
+};
+
 //Digole12864.**character**(c,[callback(err)]) - Write character (c) to screen at cursor
 
 Digole12864.prototype.character = function (character, cb){
